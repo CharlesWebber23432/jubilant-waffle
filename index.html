@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hard Work & Persistence | The Unstoppable Mindset</title>
+  <!-- Google Fonts + simple reset & modern CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fef9f0;  /* warm off-white */
+      color: #1e1a15;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll */
+    ::selection {
+      background: #e7b42c;
+      color: #1e1a15;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header / nav */
+    .navbar {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #c45c1b, #e7b42c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3b2c1f;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #c45c1b;
+    }
+
+    /* hero section */
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      justify-content: space-between;
+    }
+    .hero-content {
+      flex: 1.2;
+      min-width: 280px;
+    }
+    .hero-content .badge {
+      display: inline-block;
+      background: #e7b42c20;
+      color: #b9530e;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(2px);
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      color: #251c14;
+    }
+    .hero-content h1 span {
+      background: linear-gradient(120deg, #d96c1c, #f3bc3c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #4a3926;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #2c2118;
+      color: #fef3e4;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.25s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .btn-primary:hover {
+      background: #c45c1b;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -10px rgba(196,92,27,0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #d4be9c;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2c1f;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: #c45c1b;
+      background: #fff5ea;
+      color: #c45c1b;
+    }
+    .hero-visual {
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.08));
+    }
+
+    /* core principles grid */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: -0.3px;
+      color: #251c14;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #e7b42c;
+      margin: 0.8rem auto 0;
+      border-radius: 4px;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0 4rem;
+    }
+    .principle-card {
+      background: white;
+      padding: 2rem 1.8rem;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      border: 1px solid #f3e3cf;
+      text-align: center;
+    }
+    .principle-card:hover {
+      transform: translateY(-6px);
+      border-color: #e7b42c70;
+      box-shadow: 0 24px 36px -14px rgba(199, 100, 19, 0.12);
+    }
+    .principle-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .principle-card h3 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+    .principle-card p {
+      color: #4e3e2c;
+      font-size: 1rem;
+    }
+
+    /* quote carousel / testimony area */
+    .quote-section {
+      background: #2a1f17;
+      border-radius: 48px;
+      margin: 3rem 0 5rem;
+      padding: 3rem 2rem;
+      color: #fff1e0;
+    }
+    .quote-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-text {
+      font-size: 1.65rem;
+      font-weight: 500;
+      font-style: normal;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      quotes: "“" "”" "‘" "’";
+    }
+    .quote-text::before {
+      content: "“";
+      font-size: 3rem;
+      opacity: 0.5;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .quote-text::after {
+      content: "”";
+      font-size: 3rem;
+      opacity: 0.5;
+      vertical-align: bottom;
+      line-height: 0;
+    }
+    .quote-author {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      color: #e7b42c;
+    }
+    .quote-role {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+    .quote-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .quote-dot {
+      width: 10px;
+      height: 10px;
+      background: #c9b28b;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .quote-dot.active {
+      background: #e7b42c;
+      width: 28px;
+    }
+
+    /* persistence meter (interactive) */
+    .persistence-meter {
+      background: #f9efdf;
+      border-radius: 48px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+    .meter-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .meter-desc {
+      max-width: 550px;
+      margin: 0 auto 1.8rem auto;
+      color: #4e3621;
+    }
+    .progress-container {
+      max-width: 480px;
+      margin: 0 auto 1.5rem;
+      background: #e0cfba;
+      border-radius: 100px;
+      height: 20px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #c45c1b, #f3bc3c);
+      border-radius: 100px;
+      transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .meter-control {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .meter-btn {
+      background: white;
+      border: 1px solid #d1b68c;
+      padding: 0.6rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .meter-btn:hover {
+      background: #e7b42c;
+      border-color: #e7b42c;
+      color: #251c14;
+    }
+    .persistence-feedback {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      color: #9b5a2b;
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #eedbc6;
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6c5a48;
+    }
+
+    @media (max-width: 760px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      .navbar .nav-links {
+        gap: 1rem;
+      }
+      .quote-text {
+        font-size: 1.3rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav-inner">
+        <div class="logo">✦ grit.forge</div>
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Principles</a>
+          <a href="#">Stories</a>
+          <a href="#">Journal</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <div class="container">
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge">🔥 relentless mindset</div>
+            <h1>Hard work beats talent <span>when talent fails to work hard.</span></h1>
+            <p>Persistence is the silent engine of greatness. Each small effort compounds into unstoppable momentum. Embrace the grind, celebrate the climb.</p>
+            <div class="btn-group">
+              <a href="#" class="btn-primary">Start your journey ✨</a>
+              <a href="#" class="btn-outline">Discover stories →</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <svg viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M120 280 L200 120 L280 280 L240 280 L200 180 L160 280 L120 280Z" fill="#E7B42C" fill-opacity="0.7" stroke="#B95C1A" stroke-width="2"/>
+              <circle cx="200" cy="100" r="18" fill="#C45C1B" stroke="#FAE4BC" stroke-width="3"/>
+              <path d="M80 320 L320 320" stroke="#D1AF87" stroke-width="6" stroke-linecap="round"/>
+              <path d="M150 320 L170 260 L230 260 L250 320" fill="#F1D5A6" stroke="#AA7744" stroke-width="2"/>
+              <rect x="190" y="280" width="20" height="40" fill="#AA7744" rx="4"/>
+              <path d="M300 180 L340 150 L340 210 L300 180Z" fill="#C45C1B" opacity="0.8"/>
+              <path d="M70 170 L45 140 L95 140 L70 170Z" fill="#E7B42C" opacity="0.7"/>
+              <text x="48" y="340" fill="#4F3822" font-size="12" font-weight="bold">consistency</text>
+              <text x="260" y="340" fill="#4F3822" font-size="12" font-weight="bold">persistence</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- principles of hard work & persistence -->
+      <div class="section-title">The pillars of resilience</div>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-icon">⛰️</div>
+          <h3>Relentless Action</h3>
+          <p>Small daily disciplines stacked over time create exponential breakthroughs. Motion beats meditation.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">🔥</div>
+          <h3>Embrace Failure</h3>
+          <p>Setbacks are stepping stones. Persistent people learn, adapt, and rise stronger after each fall.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">⏳</div>
+          <h3>Patience & Grit</h3>
+          <p>Endurance through plateaus separates dreamers from doers. Keep showing up, even on hard days.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">🎯</div>
+          <h3>Purpose-Driven</h3>
+          <p>Hard work without direction is drift. Anchor persistence to a meaningful why, and you’ll outlast any storm.</p>
+        </div>
+      </div>
+
+      <!-- rotating quote section (testimonials of persistence) -->
+      <div class="quote-section">
+        <div class="quote-inner">
+          <div id="dynamicQuote" class="quote-text">
+            It does not matter how slowly you go as long as you do not stop.
+          </div>
+          <div class="quote-author" id="quoteAuthor">— Confucius</div>
+          <div class="quote-role" id="quoteRole">Philosopher</div>
+          <div class="quote-nav" id="quoteDots">
+            <div class="quote-dot active" data-index="0"></div>
+            <div class="quote-dot" data-index="1"></div>
+            <div class="quote-dot" data-index="2"></div>
+            <div class="quote-dot" data-index="3"></div>
+            <div class="quote-dot" data-index="4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- interactive persistence meter: gamified -->
+      <div class="persistence-meter">
+        <div class="meter-title">⚡ Your persistence meter ⚡</div>
+        <div class="meter-desc">Every click adds a brick to your resilience. Hard work is a daily decision — fuel your progress!</div>
+        <div class="progress-container">
+          <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+        </div>
+        <div class="meter-control">
+          <button class="meter-btn" id="btnAddWork">➕ Add effort</button>
+          <button class="meter-btn" id="btnReset">⟳ Reset</button>
+        </div>
+        <div id="persistenceFeedback" class="persistence-feedback">Keep pushing, every step counts.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>✦ Hard work compounds. Persistence never goes unnoticed. © grit.forge — build the unstoppable version of yourself.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // -------------------- QUOTE CAROUSEL (Persistence wisdom) --------------------
+      const quotesLibrary = [
+        { text: "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice, and most of all, love of what you are doing.", author: "Pelé", role: "Legendary Athlete" },
+        { text: "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but a lack of will.", author: "Vince Lombardi", role: "Coach" },
+        { text: "Perseverance is not a long race; it is many short races one after the other.", author: "Walter Elliot", role: "Statesman" },
+        { text: "Hard work keeps the wrinkles out of the mind and spirit.", author: "Helena Rubinstein", role: "Entrepreneur" },
+        { text: "It always seems impossible until it’s done. Persistence is the twin of greatness.", author: "Nelson Mandela", role: "Leader" }
+      ];
+
+      let currentQuoteIdx = 0;
+      const quoteTextEl = document.getElementById('dynamicQuote');
+      const quoteAuthorEl = document.getElementById('quoteAuthor');
+      const quoteRoleEl = document.getElementById('quoteRole');
+      const dots = document.querySelectorAll('.quote-dot');
+
+      function updateQuote(index) {
+        if (!quotesLibrary[index]) return;
+        const q = quotesLibrary[index];
+        quoteTextEl.innerText = q.text;
+        quoteAuthorEl.innerText = `— ${q.author}`;
+        quoteRoleEl.innerText = q.role;
+        // update active dot
+        dots.forEach((dot, i) => {
+          if (i === index) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+        currentQuoteIdx = index;
+      }
+
+      // add click handlers to dots
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          const idx = parseInt(dot.getAttribute('data-index'), 10);
+          if (!isNaN(idx)) updateQuote(idx);
+        });
+      });
+
+      // optional auto rotate every 7 seconds? subtle but not intrusive
+      let interval = setInterval(() => {
+        let next = (currentQuoteIdx + 1) % quotesLibrary.length;
+        updateQuote(next);
+      }, 7000);
+      // clean interval not strictly needed but good practice (keep for lifespan of page)
+      window.addEventListener('beforeunload', () => clearInterval(interval));
+
+      // -------------------- PERSISTENCE METER (interactive demonstration) --------------------
+      const progressFill = document.getElementById('progressFill');
+      const btnAdd = document.getElementById('btnAddWork');
+      const btnReset = document.getElementById('btnReset');
+      const feedbackSpan = document.getElementById('persistenceFeedback');
+      
+      let currentProgress = 0;   // from 0 to 100
+      const MAX_PROGRESS = 100;
+      
+      function updateProgressUI() {
+        let percent = currentProgress;
+        if (percent > MAX_PROGRESS) percent = MAX_PROGRESS;
+        if (percent < 0) percent = 0;
+        progressFill.style.width = `${percent}%`;
+        
+        // give motivational feedback based on persistence level
+        if (percent === 0) {
+          feedbackSpan.innerHTML = "🌱 Every master was once a beginner. Take the first step.";
+        } else if (percent > 0 && percent < 25) {
+          feedbackSpan.innerHTML = "💪 Small sparks light the fire. Keep adding effort, you're building momentum!";
+        } else if (percent >= 25 && percent < 50) {
+          feedbackSpan.innerHTML = "⚡ The climb is real, but you're getting stronger. Consistency is your superpower.";
+        } else if (percent >= 50 && percent < 75) {
+          feedbackSpan.innerHTML = "🔥 Halfway? No — you're past the hardest part. Persistence is your habit now!";
+        } else if (percent >= 75 && percent < 100) {
+          feedbackSpan.innerHTML = "✨ Unstoppable! Nearly at full resilience. Hard work is shaping your character.";
+        } else if (percent === 100) {
+          feedbackSpan.innerHTML = "🏆 MASTER OF PERSISTENCE! You've maxed the meter — now go inspire others!";
+        }
+        
+        // optional visual color for feedback
+        if(percent === 100) {
+          progressFill.style.background = "linear-gradient(90deg, #f1b153, #ffdd77)";
+        } else {
+          progressFill.style.background = "linear-gradient(90deg, #c45c1b, #f3bc3c)";
+        }
+      }
+      
+      function addEffort(amount = 8) {
+        let newProgress = currentProgress + amount;
+        if (newProgress > MAX_PROGRESS) {
+          newProgress = MAX_PROGRESS;
+          if (currentProgress !== MAX_PROGRESS) {
+            // special celebration effect
+            feedbackSpan.innerHTML = "🎉 EXTRAORDINARY! You've reached maximum persistence! 🎉";
+            setTimeout(() => {
+              if (currentProgress === MAX_PROGRESS) {
+                feedbackSpan.innerHTML = "🏆 MASTER OF PERSISTENCE! You've maxed the meter — now go inspire others!";
+              }
+            }, 1800);
+          }
+        }
+        currentProgress = newProgress;
+        if (currentProgress > MAX_PROGRESS) currentProgress = MAX_PROGRESS;
+        updateProgressUI();
+        
+        // small micro interaction: button ripple feel not needed but adds fun
+        if(btnAdd) btnAdd.style.transform = "scale(0.97)";
+        setTimeout(() => { if(btnAdd) btnAdd.style.transform = ""; }, 120);
+      }
+      
+      function resetMeter() {
+        currentProgress = 0;
+        updateProgressUI();
+        feedbackSpan.innerHTML = "🔄 Reset. But remember: persistence is reborn every morning. Start again!";
+        setTimeout(() => {
+          if(currentProgress === 0) feedbackSpan.innerHTML = "🌱 Every master was once a beginner. Take the first step.";
+        }, 1800);
+      }
+      
+      if(btnAdd) {
+        btnAdd.addEventListener('click', () => {
+          addEffort(7);
+        });
+      }
+      if(btnReset) {
+        btnReset.addEventListener('click', resetMeter);
+      }
+      
+      // bonus: double-click on meter adds bigger boost (fun)
+      const meterContainer = document.querySelector('.persistence-meter');
+      if(meterContainer) {
+        meterContainer.addEventListener('dblclick', (e) => {
+          // avoid interfering with button clicks
+          if(e.target === btnAdd || e.target === btnReset) return;
+          addEffort(12);
+          let tempFeedback = "⚡ Double persistence! Strong commitment detected! +12 grit";
+          const originalFeedback = feedbackSpan.innerHTML;
+          feedbackSpan.innerHTML = tempFeedback;
+          setTimeout(() => {
+            if(currentProgress === MAX_PROGRESS) {
+              if(feedbackSpan.innerHTML !== "🏆 MASTER OF PERSISTENCE! You've maxed the meter — now go inspire others!")
+                feedbackSpan.innerHTML = originalFeedback;
+            } else {
+              updateProgressUI(); // refresh based on current state
+            }
+          }, 800);
+        });
+      }
+      
+      // initial UI sync
+      updateProgressUI();
+      
+      // additional hard work & persistence metaphor: log inspiring statement on console? not needed, but subtle setInterval just to remind?
+      // create a dynamic year in footer not needed but looks clean.
+      
+      // decorate navbar smooth anchor scroll fake (just for aesthetic dummy)
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          // just scroll to top or smooth to hero, not required but elegant
+          document.querySelector('.hero')?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      const startBtn = document.querySelector('.btn-primary');
+      if(startBtn) {
+        startBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          // encourage persistence meter focus
+          document.querySelector('.persistence-meter')?.scrollIntoView({ behavior: 'smooth' });
+          // also trigger a small add effort to show action?
+          addEffort(5);
+          feedbackSpan.innerHTML = "🔥 You started your journey! +5 persistence points!";
+          setTimeout(() => updateProgressUI(), 50);
+        });
+      }
+      const outlineBtn = document.querySelector('.btn-outline');
+      if(outlineBtn) {
+        outlineBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert("✨ Stories of grit: Thomas Edison, J.K. Rowling, Colonel Sanders — persistence turned failures into legends. ✨");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
