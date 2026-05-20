@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact | grit.forge — Hard Work & Persistence</title>
+  <!-- Google Fonts + same design system as index -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fef9f0;
+      color: #1e1a15;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: #e7b42c;
+      color: #1e1a15;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* navbar (consistent with index) */
+    .navbar {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #c45c1b, #e7b42c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3b2c1f;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #c45c1b;
+    }
+    .nav-links a.active {
+      font-weight: 700;
+      border-bottom: 2px solid #e7b42c;
+      padding-bottom: 4px;
+    }
+
+    /* page header */
+    .page-header {
+      text-align: center;
+      padding: 3rem 0 1.5rem;
+    }
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #c45c1b, #e7b42c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .page-header p {
+      font-size: 1.2rem;
+      color: #4a3926;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* contact grid: form + info */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin: 2rem 0 4rem;
+    }
+    .contact-form {
+      flex: 1.4;
+      min-width: 280px;
+      background: white;
+      padding: 2rem 2rem 2.5rem;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.05);
+      border: 1px solid #f3e3cf;
+    }
+    .contact-info {
+      flex: 1;
+      min-width: 260px;
+      background: #2a1f17;
+      border-radius: 32px;
+      padding: 2rem;
+      color: #fff1e0;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2c2118;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      border: 1.5px solid #e2d4c2;
+      background: #fffdf9;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #e7b42c;
+      box-shadow: 0 0 0 3px rgba(231, 180, 44, 0.2);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .btn-submit {
+      background: #2c2118;
+      color: #fef3e4;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-submit:hover {
+      background: #c45c1b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(196,92,27,0.3);
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .info-icon {
+      font-size: 1.6rem;
+      background: rgba(231,180,44,0.2);
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-text h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: #e7b42c;
+    }
+    .info-text p, .info-text a {
+      color: #f0e1cf;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .info-text a:hover {
+      color: #e7b42c;
+      text-decoration: underline;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      justify-content: flex-start;
+    }
+    .social-icon {
+      background: rgba(255,245,220,0.12);
+      width: 44px;
+      height: 44px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: #fff1e0;
+    }
+    .social-icon:hover {
+      background: #e7b42c;
+      color: #2c2118;
+      transform: translateY(-3px);
+    }
+    .quote-mini {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(231,180,68,0.3);
+      font-style: italic;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .success-message {
+      background: #e7f3e3;
+      border-left: 6px solid #2e7d32;
+      padding: 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      color: #1e4620;
+      font-weight: 500;
+      display: none;
+    }
+    .error-message {
+      background: #ffe6e5;
+      border-left: 6px solid #c62828;
+      padding: 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      color: #8b2c2c;
+      font-weight: 500;
+      display: none;
+    }
+    footer {
+      border-top: 1px solid #eedbc6;
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6c5a48;
+      margin-top: 1rem;
+    }
+    @media (max-width: 760px) {
+      .container {
+        padding: 0 24px;
+      }
+      .page-header h1 {
+        font-size: 2.4rem;
+      }
+      .contact-form, .contact-info {
+        padding: 1.5rem;
+      }
+      .navbar .nav-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">✦ grit.forge</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="contact.html" class="active">Contact</a>
+          <a href="#" id="journalLink">Journal</a>
+          <a href="#" id="communityLink">Community</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Let’s connect</h1>
+        <p>Hard work thrives in community. Reach out for collaborations, stories of grit, or just to share your journey.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <div id="formSuccessMsg" class="success-message">
+            ✨ Message sent! Your persistence matters — we'll get back to you soon.
+          </div>
+          <div id="formErrorMsg" class="error-message">
+            ⚠️ Oops! Please fill in all required fields correctly.
+          </div>
+          <form id="contactForm" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Full name *</label>
+              <input type="text" id="name" name="name" placeholder="e.g., Alex Rivera" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address *</label>
+              <input type="email" id="email" name="email" placeholder="hello@persistence.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>— Select an option —</option>
+                <option value="story">Share your persistence story</option>
+                <option value="collab">Collaboration / Partnership</option>
+                <option value="speaking">Speaking / Workshop</option>
+                <option value="support">Support & feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your journey, question, or idea..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span>✉️ Send message</span>
+            </button>
+            <p style="font-size: 0.75rem; margin-top: 1rem; text-align: center; color: #8f735a;">We honor every message. Expect a reply within 48 hours.</p>
+          </form>
+        </div>
+
+        <!-- Contact info & persistence mindset -->
+        <div class="contact-info">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <h4>Our virtual forge</h4>
+              <p>Global community hub<br> Remote but relentless</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-text">
+              <h4>Email us directly</h4>
+              <p><a href="mailto:persist@gritforge.com">persist@gritforge.com</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-text">
+              <h4>Weekly hotline</h4>
+              <p>+1 (800) 427-4748<br><span style="font-size: 0.8rem;">Mon–Fri, 9am–6pm (ET)</span></p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+            <a href="#" class="social-icon" aria-label="X / Twitter">𝕏</a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">🔗</a>
+            <a href="#" class="social-icon" aria-label="YouTube">▶️</a>
+          </div>
+          <div class="quote-mini">
+            “ Persistence is the twin sister of excellence. <br> — Connect, grow, and never settle. ”
+          </div>
+        </div>
+      </div>
+
+      <!-- little extra: resilience callout -->
+      <div style="background: #f3e9de; border-radius: 28px; padding: 1.8rem; text-align: center; margin-bottom: 2.5rem;">
+        <p style="font-size: 1rem; font-weight: 500; color: #4a2e1b;">⚡ "The difference between ordinary and extraordinary is that little extra." — Jimmy Johnson ⚡</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Every message you send is an act of courage. We read each one with the same persistence we preach.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>✦ grit.forge — built on hard work & persistence. Reach out, stay relentless. © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // DOM elements
+      const form = document.getElementById('contactForm');
+      const successDiv = document.getElementById('formSuccessMsg');
+      const errorDiv = document.getElementById('formErrorMsg');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const subjectSelect = document.getElementById('subject');
+      const messageInput = document.getElementById('message');
+
+      // Helper: hide messages after delay and reset
+      function hideMessages() {
+        setTimeout(() => {
+          successDiv.style.display = 'none';
+          errorDiv.style.display = 'none';
+        }, 4000);
+      }
+
+      function showSuccess() {
+        successDiv.style.display = 'block';
+        errorDiv.style.display = 'none';
+        hideMessages();
+      }
+
+      function showError(customMsg = null) {
+        errorDiv.style.display = 'block';
+        successDiv.style.display = 'none';
+        if (customMsg) {
+          errorDiv.innerHTML = `⚠️ ${customMsg}`;
+        } else {
+          errorDiv.innerHTML = `⚠️ Oops! Please fill in all required fields correctly.`;
+        }
+        hideMessages();
+      }
+
+      // validation: name, email format, subject not empty placeholder, message not empty
+      function validateForm() {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const subject = subjectSelect.value;
+        const message = messageInput.value.trim();
+
+        if (name === "") {
+          showError("Please enter your full name.");
+          nameInput.focus();
+          return false;
+        }
+        if (email === "") {
+          showError("Email address is required.");
+          emailInput.focus();
+          return false;
+        }
+        // simple email regex
+        const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+        if (!emailRegex.test(email)) {
+          showError("Enter a valid email address (e.g., name@domain.com).");
+          emailInput.focus();
+          return false;
+        }
+        if (!subject || subject === "" || subject === "— Select an option —") {
+          showError("Please select a subject so we can route your message properly.");
+          subjectSelect.focus();
+          return false;
+        }
+        if (message === "") {
+          showError("Write your message — your voice matters!");
+          messageInput.focus();
+          return false;
+        }
+        if (message.length < 10) {
+          showError("Your message is a bit short. Share a little more detail (min. 10 characters).");
+          messageInput.focus();
+          return false;
+        }
+        return true;
+      }
+
+      // store submissions in localStorage as proof of persistence? just for demo + simulated send
+      function storeContactEntry(entry) {
+        let contacts = localStorage.getItem('gritforge_contacts');
+        let entries = contacts ? JSON.parse(contacts) : [];
+        entries.push({ ...entry, timestamp: new Date().toISOString() });
+        localStorage.setItem('gritforge_contacts', JSON.stringify(entries));
+        // keep only last 20 entries to avoid clutter
+        if(entries.length > 20) entries.shift();
+      }
+
+      // handle submit (prevent actual page reload, simulate network)
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        // collect data for local storage (just for demonstration)
+        const formData = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          subject: subjectSelect.value,
+          message: messageInput.value.trim(),
+        };
+
+        // Simulate sending to server (since no backend, we show success + store locally)
+        // In a real environment you would use fetch to an endpoint. Here we mimic.
+        const submitBtn = form.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = `<span>⏳ Sending with grit...</span>`;
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          // after "network delay" we simulate success
+          storeContactEntry(formData);
+          showSuccess();
+          form.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          
+          // Optional: additional uplifting console message
+          console.log("🔥 Persistence contact received: ", formData.name);
+          // tiny extra feedback: change success message dynamically to include name
+          successDiv.innerHTML = `✨ Thanks ${formData.name.split(' ')[0]}! Your persistence fuels our community. We'll reply soon. ✨`;
+          setTimeout(() => {
+            if (successDiv.style.display === 'block') {
+              successDiv.innerHTML = `✨ Message sent! Your persistence matters — we'll get back to you soon.`;
+            }
+          }, 3500);
+        }, 800);
+      });
+
+      // navigation helpers: if user clicks on journal or community we show smooth alerts / redirection to contact context
+      const journalLink = document.getElementById('journalLink');
+      const communityLink = document.getElementById('communityLink');
+      
+      if(journalLink) {
+        journalLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert("📖 The Persistence Journal: Coming soon. Meanwhile, share your story via the contact form — we'd love to feature it!");
+        });
+      }
+      if(communityLink) {
+        communityLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert("🌍 Join our Discord of relentless builders. Send a message through the form with 'Community' in subject, and we'll invite you!");
+        });
+      }
+
+      // additional feature: add small interactive placeholder that changes on focus (uplifting)
+      const messageField = document.getElementById('message');
+      const originalPlaceholder = messageField.placeholder;
+      messageField.addEventListener('focus', () => {
+        messageField.placeholder = "Write your story — every word is a step forward...";
+      });
+      messageField.addEventListener('blur', () => {
+        if(messageField.value === "") messageField.placeholder = originalPlaceholder;
+      });
+
+      // add persistence easter egg: double click on contact-info shows motivational quote
+      const infoBox = document.querySelector('.contact-info');
+      if(infoBox) {
+        infoBox.addEventListener('dblclick', () => {
+          const quotes = [
+            "🏔️ Persist: rivers carve mountains, not by force, but by persistence.",
+            "🔥 Hard work is the bridge between goals and accomplishments.",
+            "⏳ Little by little, one travels far. Send that message!",
+            "💪 Grit is living life like it's a marathon, not a sprint."
+          ];
+          const random = quotes[Math.floor(Math.random() * quotes.length)];
+          const originalText = infoBox.querySelector('.quote-mini')?.innerHTML;
+          const quoteElem = infoBox.querySelector('.quote-mini');
+          if(quoteElem) {
+            const backup = quoteElem.innerHTML;
+            quoteElem.innerHTML = `✨ ${random} ✨`;
+            setTimeout(() => {
+              quoteElem.innerHTML = backup;
+            }, 2500);
+          }
+        });
+      }
+
+      // elegant sync: active nav link highlight already done, but if someone lands from index ensure active
+      // also avoid errors with index.html not existing? no problem, we keep relative href.
+      // bonus: if user clicks on logo redirects to index
+      const logoLink = document.querySelector('.logo');
+      if(logoLink && logoLink.getAttribute('href') !== 'index.html') {
+        logoLink.setAttribute('href', 'index.html');
+      }
+      
+      // fallback: if the user clicks any social icons, prevent default and show encouragement
+      const socialIcons = document.querySelectorAll('.social-icon');
+      socialIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert("🌱 Our social channels are growing with grit! Follow us for daily persistence drops. (Coming very soon!)");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
